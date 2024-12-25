@@ -1,15 +1,20 @@
-import {useState} from "react";
-
 import {DatePicker} from "../DatePicker/DatePicker";
-
-import data from '../../data/data.json'
 
 import styles from './FilterPanel.module.css'
 
-const categories = [...new Set(data.map(item => item.category))]
-
-export const FilterPanel = ({className, onCategoryChange, onDateChange, minDate, maxDate}) => {
-  const [selectedCategories, setSelectedCategories] = useState(categories);
+export const FilterPanel = (
+  {
+    className,
+    onCategoryChange,
+    onDateChange,
+    minDate,
+    maxDate,
+    selectedDates,
+    setSelectedDate,
+    selectedCategories,
+    setSelectedCategories,
+    categories
+  }) => {
   const handleCheckboxChange = (category) => {
     const updatedCategories = selectedCategories.includes(category)
       ? selectedCategories.filter(item => item !== category)
@@ -20,7 +25,7 @@ export const FilterPanel = ({className, onCategoryChange, onDateChange, minDate,
 
   return (
     <section className={className}>
-      <DatePicker onDateChange={onDateChange} minDate={minDate} maxDate={maxDate}/>
+      <DatePicker onDateChange={onDateChange} minDate={minDate} maxDate={maxDate} selected={selectedDates} setSelected={setSelectedDate} />
       <div className={styles.categories}>
         <h3>Выбор категории:</h3>
         <div className={styles.category_items}>

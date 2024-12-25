@@ -2,10 +2,7 @@ import { DayPicker  } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 
-import {useState} from "react";
-
-export const DatePicker = ({ onDateChange, minDate, maxDate }) => {
-  const [selected, setSelected] = useState({from: minDate, to: maxDate});
+export const DatePicker = ({ onDateChange, minDate, maxDate, selected, setSelected }) => {
 
   const handleDateChange = (dates) => {
     if (!dates) return

@@ -6,33 +6,27 @@ import {FilterPanel} from "../../widgets/FilterPanel/FilterPanel";
 import data from '../../data/data.json';
 
 import styles from "./DashboardPage.module.css";
-import {getMinMaxDates} from "../../features/dashboards/utils/dataUtils";
+import {useFilterDashboardData} from "../../features/dashboards/hooks/useFilterDashboardData";
 
 const LineGraph = lazy(() => import('../../features/dashboards/LineGraph/LineGraph'))
 const BarChartComponent = lazy(() => import('../../features/dashboards/BarChart/BarChart'));
 const PieChartComponent = lazy(() => import('../../features/dashboards/PieChart/PieChart'));
-const { minDate, maxDate } = getMinMaxDates(data);
 
 export const DashboardPage = () => {
   const [selectedChart, setSelectedChart] = useState('line');
-  const [filteredData, setFilteredData] = useState(data);
 
-  const handleCategoryChange = (categories) => {
-    const filtered = data.filter((item) =>
-      categories.includes(item.category))
-    setFilteredData(filtered);
-  }
-
-  const handleDateChange = (dates) => {
-    const [startDate, endDate] = dates;
-    if (startDate && endDate) {
-      const filtered = data.filter((item) => {
-        const itemDate = new Date(item.date);
-        return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
-      });
-      setFilteredData(filtered);
-    }
-  };
+  const {
+    filteredData,
+    handleCategoryChange,
+    handleDateChange,
+    maxDate,
+    minDate,
+    selectedDates,
+    selectedCategories,
+    setSelectedDates,
+    setSelectedCategories,
+    categories
+  } = useFilterDashboardData(data)
 
   const renderChart = () => {
     switch (selectedChart) {
@@ -56,6 +50,11 @@ export const DashboardPage = () => {
                      onDateChange={handleDateChange}
                      minDate={minDate}
                      maxDate={maxDate}
+                     selectedDates={selectedDates}
+                     selectedCategories={selectedCategories}
+                     setSelectedDate={setSelectedDates}
+                     setSelectedCategories={setSelectedCategories}
+                     categories={categories}
         />
         <main className={styles.main}>
           <Suspense fallback={<div>Loading...</div>}>
