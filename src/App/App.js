@@ -1,11 +1,13 @@
-import './App.css';
 import {DashboardPage} from "../pages/DashboardPage/DashboardPage";
+import {FilterProvider} from "../features/dashboards/hooks/useFilterDashboardData";
+
+import data from '../data/data.json'
 
 
 export const App = () => {
   return (
-    <div className="App">
-      <DashboardPage/>
-    </div>
+    <FilterProvider data={data}>
+      <DashboardPage />
+    </FilterProvider>
   );
 }

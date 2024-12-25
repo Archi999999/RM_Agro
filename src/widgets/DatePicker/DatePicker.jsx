@@ -1,12 +1,14 @@
 import { DayPicker  } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
+import {useFilter} from "../../features/dashboards/hooks/useFilterDashboardData";
 
-export const DatePicker = ({ onDateChange, minDate, maxDate, selected, setSelected }) => {
+export const DatePicker = () => {
+  const {minDate, maxDate, selectedDates, setSelectedDates, handleDateChange: onDateChange} = useFilter()
 
   const handleDateChange = (dates) => {
     if (!dates) return
-    setSelected(dates);
+    setSelectedDates(dates);
     if (dates?.from && dates?.to) {
       const formattedFrom = format(dates.from, 'yyyy-MM-dd');
       const formattedTo = format(dates.to, 'yyyy-MM-dd');
@@ -17,7 +19,7 @@ export const DatePicker = ({ onDateChange, minDate, maxDate, selected, setSelect
   return (
       <DayPicker
         mode={'range'}
-        selected={selected}
+        selected={selectedDates}
         onSelect={handleDateChange}
         defaultMonth={minDate}
         minDate={minDate}
