@@ -2,7 +2,6 @@ import { DayPicker  } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 
-import styles from './DatePicker.module.css'
 import {useState} from "react";
 
 export const DatePicker = ({ onDateChange, minDate, maxDate }) => {
@@ -19,9 +18,6 @@ export const DatePicker = ({ onDateChange, minDate, maxDate }) => {
   };
 
   return (
-    <div
-      className={styles.datepicker}
-    >
       <DayPicker
         mode={'range'}
         selected={selected}
@@ -30,6 +26,5 @@ export const DatePicker = ({ onDateChange, minDate, maxDate }) => {
         minDate={minDate}
         maxDate={maxDate}
       />
-    </div>
   )
 }

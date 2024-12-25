@@ -1,33 +1,20 @@
 import { Button } from '../../shared/ui/Button/Button';
+import {navOptions} from "./navOptions";
 
 export const SideNav = ({className, setSelectedChart}) => {
   return (
     <nav>
       <ul className={className}>
-        <li>
-          <Button
-            onClick={() => setSelectedChart('line')}
-            fullWidth
-          >
-            Линейный график
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => setSelectedChart('bar')}
-            fullWidth
-          >
-            Столбчатая диаграмма
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => setSelectedChart('pie')}
-            fullWidth
-          >
-            Круговая диаграмма
-          </Button>
-        </li>
+        {navOptions.map((nav, i)=> (
+          <li key={nav + i}>
+            <Button
+              onClick={() => setSelectedChart(nav.value)}
+              fullWidth
+            >
+              {nav.label}
+            </Button>
+          </li>
+        ))}
       </ul>
     </nav>
   )

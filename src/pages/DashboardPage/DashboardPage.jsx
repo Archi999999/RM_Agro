@@ -32,9 +32,6 @@ export const DashboardPage = () => {
       });
       setFilteredData(filtered);
     }
-    // else {
-    //   setFilteredData(transformedData);
-    // }
   };
 
   const renderChart = () => {

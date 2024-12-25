@@ -22,12 +22,15 @@ export const FilterPanel = ({className, onCategoryChange, onDateChange, minDate,
     <section className={className}>
       <DatePicker onDateChange={onDateChange} minDate={minDate} maxDate={maxDate}/>
       <div className={styles.categories}>
-        {categories.map( (category, index) => (
-          <label key={index + category}>
-            {category}
-            <input type="checkbox" value={category} onChange={() => handleCheckboxChange(category)} defaultChecked/>
-          </label>
-        ))}
+        <h3>Выбор категории:</h3>
+        <div className={styles.category_items}>
+          {categories.map( (category, index) => (
+            <label key={index + category}>
+              {category}
+              <input type="checkbox" value={category} onChange={() => handleCheckboxChange(category)} defaultChecked/>
+            </label>
+          ))}
+        </div>
       </div>
     </section>
   )

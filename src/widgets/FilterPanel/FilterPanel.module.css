@@ -1,4 +1,14 @@
 .categories {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+  h3 {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+
+.category_items {
+  display: flex;
+  justify-content: center;
 }
