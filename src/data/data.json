@@ -5,118 +5,103 @@
     "value": 100
   },
   {
-    "date": "2024-01-02",
+    "date": "2024-01-01",
     "category": "B",
     "value": 200
   },
   {
-    "date": "2024-01-03",
-    "category": "A",
-    "value": 150
-  },
-  {
-    "date": "2024-01-04",
+    "date": "2024-01-01",
     "category": "C",
     "value": 80
   },
   {
-    "date": "2024-01-05",
+    "date": "2024-01-02",
+    "category": "A",
+    "value": 150
+  },
+  {
+    "date": "2024-01-02",
     "category": "B",
     "value": 220
   },
   {
-    "date": "2024-01-06",
+    "date": "2024-01-03",
     "category": "A",
     "value": 170
   },
   {
-    "date": "2024-01-07",
+    "date": "2024-01-02",
     "category": "C",
     "value": 90
   },
   {
-    "date": "2024-01-08",
+    "date": "2024-01-03",
     "category": "B",
     "value": 180
   },
   {
-    "date": "2024-01-09",
+    "date": "2024-01-04",
     "category": "A",
     "value": 160
   },
   {
-    "date": "2024-01-10",
+    "date": "2024-01-03",
     "category": "C",
     "value": 100
   },
   {
-    "date": "2024-01-11",
-    "category": "A",
-    "value": 110
-  },
-  {
-    "date": "2024-01-12",
+    "date": "2024-01-04",
     "category": "B",
     "value": 230
   },
   {
-    "date": "2024-01-13",
+    "date": "2024-01-04",
     "category": "C",
     "value": 95
   },
   {
-    "date": "2024-01-14",
+    "date": "2024-01-05",
     "category": "A",
     "value": 180
   },
   {
-    "date": "2024-01-15",
+    "date": "2024-01-05",
     "category": "B",
     "value": 210
   },
   {
-    "date": "2024-01-16",
+    "date": "2024-01-06",
     "category": "A",
     "value": 130
   },
   {
-    "date": "2024-01-17",
+    "date": "2024-01-05",
     "category": "C",
     "value": 85
   },
   {
-    "date": "2024-01-18",
+    "date": "2024-01-06",
     "category": "B",
     "value": 190
   },
   {
-    "date": "2024-01-19",
+    "date": "2024-01-07",
     "category": "A",
     "value": 160
   },
   {
-    "date": "2024-01-20",
+    "date": "2024-01-06",
     "category": "C",
     "value": 105
   },
   {
-    "date": "2024-01-21",
-    "category": "A",
-    "value": 140
-  },
-  {
-    "date": "2024-01-22",
+    "date": "2024-01-07",
     "category": "B",
     "value": 220
   },
   {
-    "date": "2024-01-23",
+    "date": "2024-01-07",
     "category": "C",
     "value": 75
-  },
-  {
-    "date": "2024-01-24",
-    "category": "A",
-    "value": 190
   }
 ]
