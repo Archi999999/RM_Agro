@@ -1,9 +1,12 @@
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {transformDataForCharts} from "../utils/dataUtils";
 
 const BarChartComponent = ({ data }) => {
+  const transformedData = transformDataForCharts(data)
+
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={data}>
+      <BarChart data={transformedData}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
         <YAxis />
