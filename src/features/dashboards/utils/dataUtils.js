@@ -18,3 +18,10 @@ export const transformDataForPieChart = (data) => {
     } return acc;
     }, []);
 };
+
+export const getMinMaxDates = (data) => {
+  const dates = data.map(item => new Date(item.date));
+  const minDate = new Date(Math.min(...dates));
+  const maxDate = new Date(Math.max(...dates));
+  return { minDate, maxDate };
+};

@@ -6,10 +6,12 @@ import {FilterPanel} from "../../widgets/FilterPanel/FilterPanel";
 import data from '../../data/data.json';
 
 import styles from "./DashboardPage.module.css";
+import {getMinMaxDates} from "../../features/dashboards/utils/dataUtils";
 
 const LineGraph = lazy(() => import('../../features/dashboards/LineGraph/LineGraph'))
 const BarChartComponent = lazy(() => import('../../features/dashboards/BarChart/BarChart'));
 const PieChartComponent = lazy(() => import('../../features/dashboards/PieChart/PieChart'));
+const { minDate, maxDate } = getMinMaxDates(data);
 
 export const DashboardPage = () => {
   const [selectedChart, setSelectedChart] = useState('line');
@@ -20,6 +22,20 @@ export const DashboardPage = () => {
       categories.includes(item.category))
     setFilteredData(filtered);
   }
+
+  const handleDateChange = (dates) => {
+    const [startDate, endDate] = dates;
+    if (startDate && endDate) {
+      const filtered = data.filter((item) => {
+        const itemDate = new Date(item.date);
+        return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
+      });
+      setFilteredData(filtered);
+    }
+    // else {
+    //   setFilteredData(transformedData);
+    // }
+  };
 
   const renderChart = () => {
     switch (selectedChart) {
@@ -36,9 +52,14 @@ export const DashboardPage = () => {
 
   return (
     <div className={styles.dashboard_page}>
-      <SideNav setSelectedChart={setSelectedChart} className={styles.side_nav}/>
+      <SideNav setSelectedChart={setSelectedChart} className={styles.side_nav} />
       <div className={styles.content_container}>
-        <FilterPanel className={styles.filter_panel} handleCategoryChange={handleCategoryChange}/>
+        <FilterPanel className={styles.filter_panel}
+                     onCategoryChange={handleCategoryChange}
+                     onDateChange={handleDateChange}
+                     minDate={minDate}
+                     maxDate={maxDate}
+        />
         <main className={styles.main}>
           <Suspense fallback={<div>Loading...</div>}>
             {renderChart()}
